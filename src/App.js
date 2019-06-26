@@ -16,13 +16,17 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">React Mastermind</header>
-        <GameBoard />
-        {/* remember, we DON'T want to try and add className (for styling) to GameBoard HERE;
+        <div className="flex-h">
+          <GameBoard />
+          {/* remember, we DON'T want to try and add className (for styling) to GameBoard HERE;
             gotta go to the actual component file and do it there  */}
-        <ColorPicker />
-        <GameTimer />
-        <NewGameButton />
-        <footer className="component">footer</footer>
+          <div>
+            <ColorPicker />
+            <GameTimer />
+            <NewGameButton />
+          </div>
+        </div>
+        <footer>footer</footer>
       </div>
     );
   }
