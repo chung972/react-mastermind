@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import GameBoard from "./components/GameBoard/GameBoard";
+import ColorPicker from "./components/ColorPicker/ColorPicker";
 
 class App extends Component {
   // we can inherit Component like class App extends React.Component, OR do this below:
@@ -14,6 +15,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">React Mastermind</header>
         <GameBoard />
+        {/* remember, we DON'T want to try and add className (for styling) to GameBoard HERE;
+            gotta go to the actual component file and do it there  */}
+        <ColorPicker />
       </div>
     );
   }
