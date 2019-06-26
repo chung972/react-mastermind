@@ -1,11 +1,18 @@
 import React from "react";
-import GameRow from "../GameRow/GameRow";
+import GuessRow from "../GuessRow/GuessRow";
 
 const GameBoard = (props) => (
     <div>
-        GameBoard
-        <GameRow />
-        <GameRow />
+        {props.guesses.map((guess, index)=>
+            <GuessRow 
+                guess={guess}
+                colors={props.colors}
+                rowIdx={index}
+                // add the currentGuess prop 
+                currentGuess={index === (props.guesses.length - 1)}
+                key={index}
+            />
+        )}
     </div>
 );
 
