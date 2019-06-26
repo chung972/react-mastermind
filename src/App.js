@@ -22,6 +22,7 @@ class App extends Component {
         <ColorPicker />
         <GameTimer />
         <NewGameButton />
+        <footer className="component">footer</footer>
       </div>
     );
   }
