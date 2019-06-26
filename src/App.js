@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
+import GameBoard from "./components/GameBoard/GameBoard";
 
 class App extends Component {
   // we can inherit Component like class App extends React.Component, OR do this below:
@@ -12,6 +13,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">React Mastermind</header>
+        <GameBoard />
       </div>
     );
   }
