@@ -1,7 +1,7 @@
 import React from "react";
 
 const GameBoard = (props) => (
-    <div>
+    <div className="component">
         GameBoard
     </div>
 );
