@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+// importing via {Component} is called NAMED IMPORT
 import './App.css';
 import GameBoard from "./components/GameBoard/GameBoard";
 import ColorPicker from "./components/ColorPicker/ColorPicker";
@@ -6,7 +7,6 @@ import ColorPicker from "./components/ColorPicker/ColorPicker";
 class App extends Component {
   // we can inherit Component like class App extends React.Component, OR do this below:
   // import React, { Component} from "react";
-
 
   // normally, you START off with having FUNCTIONAL components, and then
   // refactor as you run into cases where a component needs to hold STATE
@@ -26,3 +26,5 @@ class App extends Component {
 export default App;
 // there can only be one DEFAULT export
 // but there can be MANY NAMED exports
+// regardless of whether a component is a class or function, you will ALWAYS
+// have to export it
