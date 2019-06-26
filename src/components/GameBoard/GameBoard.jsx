@@ -5,6 +5,7 @@ const GameBoard = (props) => (
     <div className="component">
         GameBoard
         <GameRow />
+        <GameRow />
     </div>
 );
 
