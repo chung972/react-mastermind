@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  // we can inherit Component like class App extends React.Component, OR do this below:
+  // import React, { Component} from "react";
+
+
+  // normally, you START off with having FUNCTIONAL components, and then
+  // refactor as you run into cases where a component needs to hold STATE
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">React Mastermind</header>
+      </div>
+    );
+  }
 }
 
 export default App;
+// there can only be one DEFAULT export
+// but there can be MANY NAMED exports
