@@ -1,9 +1,9 @@
 import React from "react";
 
 const ScoreButton = (props) => (
-    <div>
+    <button>
         ScoreButton
-    </div>
+    </button>
 );
 
 export default ScoreButton;
