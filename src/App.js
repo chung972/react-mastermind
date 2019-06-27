@@ -18,7 +18,7 @@ class App extends Component {
       // state is an object that holds information in its properties
       // to UPDATE the STATE, you need to call on this.setState(); not like this.state.key="something"
       selColorIdx: 0,
-      guesses: [this.getNewGuess(), this.getNewGuess()],
+      guesses: [this.getNewGuess(), this.getNewGuess(), this.getNewGuess(), this.getNewGuess()],
       // for development purposes, let's initialize with TWO guess objects
       code: this.genCode()
     }
@@ -54,13 +54,13 @@ class App extends Component {
   render() {
     let winTries = this.getWinTries();
     return (
-      <div className="App">
+      <div className="App flex-h">
         <header className="App-header">React Mastermind</header>
         <div className="flex-h">
           <GameBoard colors={colors} guesses={this.state.guesses} />
           {/* remember, we DON'T want to try and add className (for styling) to GameBoard HERE;
             gotta go to the actual component file and do it there  */}
-          <div>
+          <div className="CGN">
             <ColorPicker colors={colors} selColorIdx={this.state.selColorIdx}/>
             <GameTimer />
             <NewGameButton />
