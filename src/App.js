@@ -41,21 +41,20 @@ class App extends Component {
     };
   }
 
+  getWinTries() {
+    // if winner, return num guesses, otherwise 0 (no winner)
+    let lastGuess = this.state.guesses.length - 1;
+    return this.state.guesses[lastGuess].score.perfect === 4 ? lastGuess + 1 : 0;
+  }
+
 
   // normally, you START off with having FUNCTIONAL components, and then
   // refactor as you run into cases where a component needs to hold STATE
 
   render() {
+    let winTries = this.getWinTries();
     return (
       <div className="App">
-        <button onClick={() => this.setState((state) => {
-          return {
-            selColorIdx: ++state.selColorIdx % 4
-          };
-        })}>
-          Next Color
-        </button>
-        Selected color: {colors[this.state.selColorIdx]}
         <header className="App-header">React Mastermind</header>
         <div className="flex-h">
           <GameBoard colors={colors} guesses={this.state.guesses} />
@@ -67,7 +66,7 @@ class App extends Component {
             <NewGameButton />
           </div>
         </div>
-        <footer>footer</footer>
+        <footer>{(winTries ? `You Won in ${winTries} Guesses!` : 'Good Luck!')}</footer>
       </div>
     );
   }
