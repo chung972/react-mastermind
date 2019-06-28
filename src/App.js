@@ -22,7 +22,10 @@ class App extends Component {
       // for development purposes, let's initialize with TWO guess objects
       code: this.genCode()
     }
+    // this.handleColorSelection = this.handleColorSelection.bind(this)  this was the OLD way to initialize a prop
   }
+  // the NEW way to get the same functionality as above is called PROPERTY INITIAZLIER SYNTAX (we're going to
+  // write it down below right above handleColorSelection() around line 67)
 
   genCode() {
     return new Array(4).fill().map(() => Math.floor(Math.random() * colors.length));
@@ -50,6 +53,25 @@ class App extends Component {
   // normally, you START off with having FUNCTIONAL components, and then
   // refactor as you run into cases where a component needs to hold STATE
 
+
+  // EVENT HANDLERS
+  // handleColorSelection(colorIndex) {
+  //   // jim recommends that whenever you code a method that is going to be used as an event handler,
+  //   // start off with naming the function 'handle...'
+  //   // because the onClick lives in GuessPeg, we have to pass this entire method down as a prop
+  //   this.setState({selColorIdx: colorIndex})   // this code to the left will throw an error; 'this' is the props object
+  //   // from ColorPicker (so we had to go to state up above and BIND this.handleColorSelection)
+
+  // };
+
+  handleColorSelection = (colorIndex) => {
+    this.setState({selColorIdx: colorIndex})
+  };
+
+
+  // LIFECYCLE METHODS
+
+
   render() {
     let winTries = this.getWinTries();
     return (
@@ -60,7 +82,11 @@ class App extends Component {
           {/* remember, we DON'T want to try and add className (for styling) to GameBoard HERE;
             gotta go to the actual component file and do it there  */}
           <div className="App-controls">
-            <ColorPicker colors={colors} selColorIdx={this.state.selColorIdx}/>
+            <ColorPicker 
+              colors={colors} 
+              selColorIdx={this.state.selColorIdx}
+              handleColorSelection={this.handleColorSelection}
+            />
             <GameTimer />
             <NewGameButton />
           </div>
