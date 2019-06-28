@@ -1,9 +1,8 @@
 import React from "react";
 import GuessRow from "../GuessRow/GuessRow";
-import "./GameBoard.css";
-
+import styles from './GameBoard.module.css';
 const GameBoard = (props) => (
-    <div className="GameBoard">
+    <div className={styles.GameBoard}>
         {props.guesses.map((guess, index)=>
             <GuessRow 
                 guess={guess}
