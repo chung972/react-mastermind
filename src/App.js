@@ -18,7 +18,7 @@ class App extends Component {
       // state is an object that holds information in its properties
       // to UPDATE the STATE, you need to call on this.setState(); not like this.state.key="something"
       selColorIdx: 0,
-      guesses: [this.getNewGuess(), this.getNewGuess(), this.getNewGuess(), this.getNewGuess()],
+      guesses: [this.getNewGuess()],
       // for development purposes, let's initialize with TWO guess objects
       code: this.genCode()
     }
@@ -32,8 +32,7 @@ class App extends Component {
 
   getNewGuess() {
     return {
-      // code: [null, null, null, null],    // comment out until done testing
-      code: [3, 2, 1, 0], // testing purposes
+      code: [null, null, null, null],   
       score: {
         perfect: 0,
         almost: 0
@@ -55,18 +54,18 @@ class App extends Component {
     let winTries = this.getWinTries();
     return (
       <div className="App flex-h">
-        <header className="App-header">React Mastermind</header>
-        <div className="flex-h">
+        <header className='App-header-footer'>R E A C T &nbsp;&nbsp;&nbsp;  M A S T E R M I N D</header>
+        <div className="flex-h align-flex-end">
           <GameBoard colors={colors} guesses={this.state.guesses} />
           {/* remember, we DON'T want to try and add className (for styling) to GameBoard HERE;
             gotta go to the actual component file and do it there  */}
-          <div className="CGN">
+          <div className="App-controls">
             <ColorPicker colors={colors} selColorIdx={this.state.selColorIdx}/>
             <GameTimer />
             <NewGameButton />
           </div>
         </div>
-        <footer>{(winTries ? `You Won in ${winTries} Guesses!` : 'Good Luck!')}</footer>
+        <footer className="App-header-footer">{(winTries ? `You Won in ${winTries} Guesses!` : 'Good Luck!')}</footer>
       </div>
     );
   }
