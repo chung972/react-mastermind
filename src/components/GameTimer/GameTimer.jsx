@@ -1,8 +1,8 @@
 import React from "react";
-import "./GameTimer.css";
+import styles from "./GameTimer.module.css";
 
 const GameTimer = (props) => (
-    <div className="GameTimer">
+    <div className={`${styles.GameTimer} flex-h`}>
         00:00
     </div>
 );
