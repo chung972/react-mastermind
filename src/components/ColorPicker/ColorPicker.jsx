@@ -12,6 +12,10 @@ const ColorPicker = (props) => (
                     borderColor: color
                 }}
                 key={color}
+                onClick={()=>props.handleColorSelection(index)}
+                // when you need to pass in an argument, just wrap the function that requires the args
+                // with a arrow function (you can even JUST have the empty parens and =>)
+
             />
         )}
     </div>
