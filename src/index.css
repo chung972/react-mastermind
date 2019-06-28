@@ -19,6 +19,10 @@ code {
   align-items: center;
 }
 
+.align-flex-end {
+  align-items: flex-end;
+}
+
 button:focus, .btn:focus {
   outline: none;
 }
