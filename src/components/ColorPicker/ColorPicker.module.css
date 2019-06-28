@@ -12,7 +12,8 @@
     cursor: pointer;
 }
 
-.div {
+.ColorPicker {
   display: flex;
-  flex-direction: column;
+  flex-flow: column nowrap;
+  align-items: center;
 }
