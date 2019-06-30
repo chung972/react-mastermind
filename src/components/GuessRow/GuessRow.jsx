@@ -11,8 +11,10 @@ const GuessRow = (props) => (
             this IS redundant, but necessary; also, we're adding 1 to be 1-based */}
         <GuessPegs 
             colors={props.colors}
+            selColorIdx={props.selColorIdx}
             code={props.guess.code}
             currentGuess={props.currentGuess}
+            rowIdx={props.rowIdx}
         />
         {
             props.currentGuess ? <ScoreButton /> : 
