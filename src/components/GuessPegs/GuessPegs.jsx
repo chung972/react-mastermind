@@ -4,11 +4,21 @@ import "./GuessPegs.css";
 
 const GuessPegs = (props) => (
     <div className='GuessPegs'>
-        <GuessPeg color={props.colors[props.code[0]]} currentGuess={props.currentGuess} />
-        <GuessPeg color={props.colors[props.code[1]]} currentGuess={props.currentGuess} />
-        <GuessPeg color={props.colors[props.code[2]]} currentGuess={props.currentGuess} />
-        <GuessPeg color={props.colors[props.code[3]]} currentGuess={props.currentGuess} />
-        {/* NOTE: we are HARD CODING the array index */}
+        {props.code.map((c, index) =>
+            <GuessPeg
+                code={props.code}
+                index={index}
+                color={props.colors}
+                currentGuess={props.currentGuess}
+                selColorIdx={props.selColorIdx}
+                rowIdx={props.rowIdx}
+                key={index}
+            />
+        )}
+        {/* EVENTUALLY, and we'd have to do this in app.js at some point too, we want
+            to iteratively generate these GuessPeg components (prob via mapping; might need idx too);
+            also, we *could* do that for code in App.js (prob unecessary)
+         */}
     </div>
 );
 
