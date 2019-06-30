@@ -20,8 +20,9 @@ class App extends Component {
       selColorIdx: 0,
       guesses: [this.getNewGuess()],
       // for development purposes, let's initialize with TWO guess objects
-      code: this.genCode()
+      solutionCode: this.genCode()
     }
+    // this.newGame();  // we don't need to do the above this.state when we can just call on newGame()
     // this.handleColorSelection = this.handleColorSelection.bind(this)  this was the OLD way to initialize a prop
   }
   // the NEW way to get the same functionality as above is called PROPERTY INITIAZLIER SYNTAX (we're going to
@@ -68,6 +69,21 @@ class App extends Component {
     this.setState({selColorIdx: colorIndex})
   };
 
+  // handlePegClick = (codeArray, currentGuessIdx, selColorIdx) => {
+  //   const newGuessArr = {...this.state.guesses, this.state.guesses[currentGuessIdx].code[guessCodeIdx]: selColorIdx}
+  //   const newColorIdx = {...this.state.guesses.code[guessCodeIdx], this.state.guesses.code[guessCodeIdx]: selColorIdx}
+  //   this.setState({
+  //     guesses: newGuessArr 
+  //   })
+  // }
+
+  newGame = () => {
+    this.setState({
+      selColorIdx: 0,
+      guesses: [this.getNewGuess()],
+      solutionCode: this.genCode()
+    })
+  }
 
   // LIFECYCLE METHODS
 
@@ -78,7 +94,10 @@ class App extends Component {
       <div className="App flex-h">
         <header className='App-header-footer'>R E A C T &nbsp;&nbsp;&nbsp;  M A S T E R M I N D</header>
         <div className="flex-h align-flex-end">
-          <GameBoard colors={colors} guesses={this.state.guesses} />
+          <GameBoard 
+            colors={colors} 
+            guesses={this.state.guesses} 
+            selColorIdx={this.state.selColorIdx}/>
           {/* remember, we DON'T want to try and add className (for styling) to GameBoard HERE;
             gotta go to the actual component file and do it there  */}
           <div className="App-controls">
@@ -88,7 +107,7 @@ class App extends Component {
               handleColorSelection={this.handleColorSelection}
             />
             <GameTimer />
-            <NewGameButton />
+            <NewGameButton newGame={this.newGame} />
           </div>
         </div>
         <footer className="App-header-footer">{(winTries ? `You Won in ${winTries} Guesses!` : 'Good Luck!')}</footer>
