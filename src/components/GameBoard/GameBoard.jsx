@@ -7,6 +7,7 @@ const GameBoard = (props) => (
             <GuessRow 
                 guess={guess}
                 colors={props.colors}
+                selColorIdx={props.selColorIdx}
                 rowIdx={index}
                 // add the currentGuess prop 
                 currentGuess={index === (props.guesses.length - 1)}
